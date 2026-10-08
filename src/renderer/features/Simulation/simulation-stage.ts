@@ -4,6 +4,8 @@ import 'pixi.js/unsafe-eval';
 
 import { Application, Assets } from 'pixi.js';
 
+import { mountGuildHallScene } from '../GuildHall/guild-hall-scene';
+
 const STAGE_BACKGROUND_COLOR = 0x1e1f24;
 
 // Pixi loads textures in workers created from blob: URLs, which the CSP also blocks.
@@ -18,8 +20,12 @@ export function mountSimulationStage(host: HTMLElement): () => void {
     const app = new Application();
     let unmounted = false;
     let initialized = false;
+    let unmountScene: (() => void) | null = null;
 
     const destroy = (): void => {
+        // The scene owns its ticker callback, resize listener and textures; release them first.
+        unmountScene?.();
+        unmountScene = null;
         app.destroy({ removeView: true }, { children: true, texture: true, textureSource: true });
     };
 
@@ -38,6 +44,7 @@ export function mountSimulationStage(host: HTMLElement): () => void {
             }
 
             host.appendChild(app.canvas);
+            unmountScene = mountGuildHallScene(app);
         })
         .catch((error: unknown) => {
             console.error('Simulation stage failed to initialize:', error);

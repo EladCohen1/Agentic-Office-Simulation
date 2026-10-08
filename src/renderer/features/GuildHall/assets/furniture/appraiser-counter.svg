@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="538 268 128 60" width="128" height="60">
+  <defs>
+    <linearGradient id="ac-wood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a06e43"/>
+      <stop offset="1" stop-color="#7a4c2b"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="600" cy="320" rx="62" ry="7" fill="#000" opacity="0.3"/>
+  <rect x="544" y="296" width="116" height="20" rx="3" fill="#4d311c"/>
+  <rect x="540" y="270" width="124" height="32" rx="6" fill="url(#ac-wood)"/>
+  <rect x="540" y="270" width="124" height="32" rx="6" fill="none" stroke="#e8c15a" stroke-width="2"/>
+  <path d="M556 290H586M571 290V278M560 280H582" stroke="#c79a2e" stroke-width="2"/>
+  <path d="M556 283a4 2 0 0 0 8 0ZM578 283a4 2 0 0 0 8 0Z" fill="#e8c15a"/>
+  <circle cx="634" cy="284" r="8" fill="#bfe0f5" opacity="0.8"/>
+  <circle cx="634" cy="284" r="8" fill="none" stroke="#e8c15a" stroke-width="2.5"/>
+  <path d="M640 290L650 298" stroke="#6b4226" stroke-width="3.5" stroke-linecap="round"/>
+  <rect x="596" y="276" width="22" height="16" rx="1.5" fill="#f8eed4"/>
+  <path d="M600 281H614M600 286H611" stroke="#8a6d4a" stroke-width="1" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 480" width="680" height="480">
+  <defs>
+    <linearGradient id="hb-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bfe0f5"/>
+      <stop offset="1" stop-color="#6f9dc8"/>
+    </linearGradient>
+    <radialGradient id="hb-fire">
+      <stop offset="0" stop-color="#ffb347" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffb347" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="hb-glow">
+      <stop offset="0" stop-color="#ffc861" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#ffc861" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Floor -->
+  <rect x="0" y="0" width="680" height="480" fill="#5a3b26"/>
+  <path d="M14 124H666M14 152H666M14 180H666M14 208H666M14 236H666M14 264H666M14 292H666M14 320H666M14 348H666M14 376H666M14 404H666M14 432H666M14 460H666" stroke="#4b3120" stroke-width="1.5"/>
+  <path d="M90 96V124M260 124V152M430 96V124M560 152V180M150 180V208M340 208V236M600 236V264M80 264V292M250 292V320M500 320V348M130 348V376M420 376V404M620 404V432M200 432V460" stroke="#4b3120" stroke-width="1.5"/>
+
+  <!-- Back wall -->
+  <rect x="0" y="0" width="680" height="96" fill="#6e4529"/>
+  <path d="M85 10V88M170 10V88M255 10V88M510 10V88M595 10V88" stroke="#4f311c" stroke-width="8"/>
+  <rect x="0" y="0" width="680" height="10" fill="#3f2816"/>
+  <rect x="0" y="88" width="680" height="8" fill="#3f2816"/>
+
+  <!-- Windows and their daylight on the floor -->
+  <path d="M34 96H104L118 150H20Z" fill="#fff6dc" opacity="0.08"/>
+  <path d="M582 96H652L666 150H568Z" fill="#fff6dc" opacity="0.08"/>
+  <rect x="34" y="20" width="70" height="56" rx="6" fill="#3f2816"/>
+  <rect x="40" y="26" width="58" height="44" rx="3" fill="url(#hb-glass)"/>
+  <path d="M69 26V70M40 48H98" stroke="#3f2816" stroke-width="3"/>
+  <rect x="582" y="20" width="70" height="56" rx="6" fill="#3f2816"/>
+  <rect x="588" y="26" width="58" height="44" rx="3" fill="url(#hb-glass)"/>
+  <path d="M617 26V70M588 48H646" stroke="#3f2816" stroke-width="3"/>
+
+  <!-- Hearth -->
+  <circle cx="200" cy="96" r="90" fill="url(#hb-fire)"/>
+  <rect x="150" y="16" width="100" height="80" rx="6" fill="#8a8580"/>
+  <path d="M150 16H250M150 36H250M150 56H250M150 76H250" stroke="#77726d" stroke-width="2"/>
+  <rect x="146" y="12" width="108" height="10" rx="3" fill="#6b4226"/>
+  <path d="M166 96V58Q166 38 200 38Q234 38 234 58V96Z" fill="#2a1a10"/>
+  <path d="M176 96Q172 76 186 66Q184 80 194 72Q194 58 204 52Q204 68 214 66Q226 78 222 96Z" fill="#ff8a2a"/>
+  <path d="M186 96Q184 82 194 76Q196 86 202 80Q206 70 212 74Q216 86 212 96Z" fill="#ffd25a"/>
+  <rect x="176" y="90" width="48" height="6" rx="3" fill="#5a3a24"/>
+
+  <!-- Banners -->
+  <path d="M272 14H302V70L287 62L272 70Z" fill="#8e2a22"/>
+  <path d="M272 14H302" stroke="#e8c15a" stroke-width="3"/>
+  <path d="M287 30L295 33V39Q295 44 287 46Q279 44 279 39V33Z" fill="#e8c15a"/>
+  <path d="M478 14H508V70L493 62L478 70Z" fill="#8e2a22"/>
+  <path d="M478 14H508" stroke="#e8c15a" stroke-width="3"/>
+  <path d="M493 30L501 33V39Q501 44 493 46Q485 44 485 39V33Z" fill="#e8c15a"/>
+
+  <!-- Quest board -->
+  <rect x="322" y="12" width="140" height="74" rx="6" fill="#7a4c2b"/>
+  <rect x="322" y="12" width="140" height="74" rx="6" fill="none" stroke="#e8c15a" stroke-width="2"/>
+  <rect x="330" y="20" width="124" height="58" rx="3" fill="#b9864f"/>
+  <rect x="337" y="25" width="20" height="24" rx="1.5" fill="#f8eed4" transform="rotate(-4 347 37)"/>
+  <rect x="362" y="24" width="18" height="22" rx="1.5" fill="#f1e3c0" transform="rotate(3 371 35)"/>
+  <rect x="386" y="26" width="20" height="24" rx="1.5" fill="#f8eed4" transform="rotate(-2 396 38)"/>
+  <rect x="411" y="24" width="18" height="22" rx="1.5" fill="#f1e3c0" transform="rotate(4 420 35)"/>
+  <rect x="434" y="26" width="16" height="22" rx="1.5" fill="#f8eed4"/>
+  <rect x="344" y="53" width="22" height="20" rx="1.5" fill="#f1e3c0" transform="rotate(2 355 63)"/>
+  <rect x="372" y="54" width="20" height="18" rx="1.5" fill="#f8eed4"/>
+  <rect x="400" y="53" width="24" height="20" rx="1.5" fill="#f8eed4" transform="rotate(-3 412 63)"/>
+  <path d="M341 32H353M341 37H351M365 31H377M365 36H375M390 33H402M390 38H400M414 31H426M347 60H361M375 60H389" stroke="#8a6d4a" stroke-width="1" stroke-linecap="round"/>
+  <circle cx="347" cy="27" r="2" fill="#c0392b"/>
+  <circle cx="371" cy="26" r="2" fill="#3b6ea8"/>
+  <circle cx="396" cy="28" r="2" fill="#c0392b"/>
+  <circle cx="420" cy="26" r="2" fill="#c0392b"/>
+  <circle cx="442" cy="28" r="2" fill="#3b6ea8"/>
+  <circle cx="374" cy="41" r="3" fill="#e8c15a"/>
+  <rect x="440" y="31" width="3" height="9" rx="1.5" fill="#c0392b"/>
+  <circle cx="441.5" cy="43" r="1.6" fill="#c0392b"/>
+  <rect x="406" y="57" width="12" height="9" rx="1.5" fill="#3a2a22"/>
+
+  <!-- Side and front walls, entrance -->
+  <rect x="0" y="96" width="14" height="384" fill="#3f2816"/>
+  <rect x="666" y="96" width="14" height="384" fill="#3f2816"/>
+  <rect x="0" y="466" width="300" height="14" fill="#3f2816"/>
+  <rect x="380" y="466" width="300" height="14" fill="#3f2816"/>
+  <rect x="300" y="466" width="80" height="14" fill="#6b4a33"/>
+  <rect x="312" y="440" width="56" height="20" rx="4" fill="#8e2a22"/>
+  <rect x="316" y="444" width="48" height="12" rx="2" fill="none" stroke="#e8c15a" stroke-width="1.5"/>
+
+  <!-- Hearth lounge rug -->
+  <ellipse cx="200" cy="146" rx="84" ry="30" fill="#7d2a22"/>
+  <ellipse cx="200" cy="146" rx="72" ry="23" fill="none" stroke="#e8c15a" stroke-width="2"/>
+
+  <!-- Guild master's dais -->
+  <rect x="520" y="104" width="138" height="118" rx="8" fill="#3f2816"/>
+  <rect x="526" y="108" width="126" height="108" rx="6" fill="#4d311c"/>
+  <rect x="534" y="114" width="110" height="96" rx="4" fill="#8e2a22"/>
+  <rect x="540" y="120" width="98" height="84" rx="3" fill="none" stroke="#e8c15a" stroke-width="1.5"/>
+  <circle cx="589" cy="148" r="46" fill="url(#hb-glow)"/>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-26 -28 52 60" width="52" height="60">
+  <defs>
+    <g id="ch-face">
+      <path d="M-4.6 0.4Q-3.2-0.8-1.8 0.4M1.8 0.4Q3.2-0.8 4.6 0.4" fill="none" stroke="#3a2a20" stroke-width="0.9" stroke-linecap="round"/>
+      <circle cx="-3.2" cy="2.6" r="1.3" fill="#2a1d14"/>
+      <circle cx="3.2" cy="2.6" r="1.3" fill="#2a1d14"/>
+      <circle cx="-2.8" cy="2.2" r="0.4" fill="#fff"/>
+      <circle cx="3.6" cy="2.2" r="0.4" fill="#fff"/>
+      <circle cx="-5.6" cy="5" r="1.8" fill="#ef8f8f" opacity="0.35"/>
+      <circle cx="5.6" cy="5" r="1.8" fill="#ef8f8f" opacity="0.35"/>
+      <path d="M-2 6Q0 7.6 2 6" fill="none" stroke="#8a4a3a" stroke-width="0.9" stroke-linecap="round"/>
+    </g>
+    <clipPath id="ch-body-clip"><ellipse cx="0" cy="17" rx="17" ry="11"/></clipPath>
+    <pattern id="ch-mail" width="3" height="2.6" patternUnits="userSpaceOnUse">
+      <path d="M0 1.3a1.5 1.3 0 0 0 3 0" fill="none" stroke="#5f6870" stroke-width="0.5"/>
+    </pattern>
+    <g id="ch-body-shade" clip-path="url(#ch-body-clip)">
+      <path d="M-17 17Q-17 29 0 29Q17 29 17 17Q12 25 0 25Q-12 25-17 17Z" fill="#000" opacity="0.18"/>
+      <path d="M-13 10Q0 3.5 13 10" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.18"/>
+      <path d="M-10.5 6.5Q-13 15-11 27M10.5 6.5Q13 15 11 27" fill="none" stroke="#000" stroke-width="0.9" opacity="0.25"/>
+    </g>
+  </defs>
+      <ellipse cx="0" cy="17" rx="18" ry="11" fill="#6b4a2a"/>
+      <g clip-path="url(#ch-body-clip)">
+        <ellipse cx="0" cy="17" rx="18" ry="11" fill="url(#ch-mail)"/>
+        <rect x="-18" y="23.5" width="36" height="3.4" fill="#4a2e18"/>
+        <rect x="-3" y="22.8" width="6" height="4.8" rx="1" fill="#e8c15a"/>
+        <rect x="-1.4" y="24.2" width="2.8" height="2" fill="#4a2e18"/>
+      </g>
+      <use href="#ch-body-shade"/>
+      <circle cx="0" cy="2" r="9.5" fill="#f0b896"/>
+      <path d="M-5 -0.2L-1.6 0.4M1.6 0.4L5-0.2" stroke="#8a3e1a" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="-3.2" cy="2.6" r="1.2" fill="#2a1d14"/>
+      <circle cx="3.2" cy="2.6" r="1.2" fill="#2a1d14"/>
+      <path d="M-9.5 2Q-11 17 0 21Q11 17 9.5 2Q7 8 0 8Q-7 8-9.5 2Z" fill="#c26a2b"/>
+      <path d="M-4 10Q-3 15 -1 19M4 10Q3 15 1 19" fill="none" stroke="#9c4f1c" stroke-width="1"/>
+      <circle cx="0" cy="19.5" r="1.6" fill="#e8c15a"/>
+      <path d="M-5.5 6.5Q0 4 5.5 6.5Q3 8.5 0 7.2Q-3 8.5-5.5 6.5Z" fill="#a8541f"/>
+      <circle cx="0" cy="4.2" r="2" fill="#e09a7a"/>
+      <path d="M-10-1Q-10-11 0-11.5Q10-11 10-1Q5-3 0-3Q-5-3-10-1Z" fill="#8b939c"/>
+      <path d="M-10-1Q-5-3 0-3Q5-3 10-1" fill="none" stroke="#e8c15a" stroke-width="1.3"/>
+      <path d="M-9-6Q-17-8-17-16Q-12-10-8-9.5Z" fill="#efe6d2"/>
+      <path d="M9-6Q17-8 17-16Q12-10 8-9.5Z" fill="#efe6d2"/>
+      <rect x="11" y="9" width="8" height="10" rx="2" fill="#9aa3ab"/>
+      <ellipse cx="15" cy="9" rx="4" ry="1.8" fill="#fff8e6"/>
+      <path d="M19 11.5a2.5 2.5 0 0 1 0 5" fill="none" stroke="#6c747c" stroke-width="1.5"/>
+      <circle cx="11" cy="16" r="3" fill="#f0b896"/>
+</svg>

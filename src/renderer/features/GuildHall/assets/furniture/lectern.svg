@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="184 232 60 80" width="60" height="80">
+  <defs>
+    <linearGradient id="lc-wood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a06e43"/>
+      <stop offset="1" stop-color="#7a4c2b"/>
+    </linearGradient>
+    <radialGradient id="lc-glow">
+      <stop offset="0" stop-color="#ffc861" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#ffc861" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="214" cy="262" r="30" fill="url(#lc-glow)"/>
+  <ellipse cx="214" cy="306" rx="20" ry="5" fill="#000" opacity="0.3"/>
+  <rect x="209" y="270" width="10" height="34" rx="2" fill="#4d311c"/>
+  <ellipse cx="214" cy="304" rx="14" ry="4" fill="#5c3a20"/>
+  <path d="M190 256H238L234 276H194Z" fill="url(#lc-wood)"/>
+  <path d="M190 256H238L234 276H194Z" fill="none" stroke="#e8c15a" stroke-width="1.5"/>
+  <path d="M196 258Q205 255 214 259V273Q205 270 197 272Z" fill="#f6efdf"/>
+  <path d="M214 259Q223 255 232 258L231 272Q223 270 214 273Z" fill="#fbf6ea"/>
+  <path d="M200 263H210M200 267H209M218 263H228M218 267H226" stroke="#8a6d4a" stroke-width="1" stroke-linecap="round"/>
+  <path d="M214 273L216 282L218 279L220 282L218 273" fill="#8e2a22"/>
+</svg>

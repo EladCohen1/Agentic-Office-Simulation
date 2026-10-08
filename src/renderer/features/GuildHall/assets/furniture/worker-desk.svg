@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 0 68 48" width="68" height="48">
+  <defs>
+    <linearGradient id="wd-wood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a06e43"/>
+      <stop offset="1" stop-color="#7a4c2b"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="42" rx="34" ry="5" fill="#000" opacity="0.3"/>
+  <rect x="2" y="24" width="60" height="14" rx="3" fill="#4d311c"/>
+  <rect x="0" y="4" width="64" height="24" rx="5" fill="url(#wd-wood)"/>
+  <rect x="0" y="4" width="64" height="24" rx="5" fill="none" stroke="#e8c15a" stroke-width="1.5"/>
+  <rect x="8" y="9" width="22" height="14" rx="1.5" fill="#f1e3c0"/>
+  <path d="M11 13H27M11 17H25" stroke="#8a6d4a" stroke-width="1" stroke-linecap="round"/>
+  <circle cx="46" cy="11" r="8" fill="#ffc861" opacity="0.2"/>
+  <ellipse cx="46" cy="20" rx="4" ry="1.6" fill="#e8c15a"/>
+  <rect x="44.5" y="13" width="3" height="7" rx="1" fill="#efe6d2"/>
+  <path d="M46 8Q48.5 11.5 46 13.5Q43.5 11.5 46 8Z" fill="#ffcf5a"/>
+</svg>
