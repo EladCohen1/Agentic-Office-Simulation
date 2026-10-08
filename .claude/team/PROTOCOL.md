@@ -25,12 +25,12 @@ subagent under `CLAUDE.md` delegation rules.
 
 ## Locations
 
-- **Main checkout** (`C:\Projects\AgenticOfficeSimulation`): the user's own. No team session works
+- **Main checkout** (`C:\Projects\Agentic-Office-Simulation`): the user's own. No team session works
   there, reads its working tree, or changes its branch.
 - **Integration worktree**: the worktree that has `team/integration` checked out (find it with
   `git worktree list --porcelain`). The manager's home; merges are verified there.
 - **Worker slots**: persistent worktrees (`worker-1`, `worker-2`, …) under
-  `C:\Projects\AgenticOfficeSimulation-team\`, beside the integration worktree. A slot hosts one lane
+  `C:\Projects\Agentic-Office-Simulation-team\`, beside the integration worktree. A slot hosts one lane
   at a time. An idle slot sits on a detached HEAD at `team/integration`; a lane creates `lane/<id>`
   there once its paths are granted and returns the slot to detached when it closes.
 - **`LANES.md`**: at the integration worktree's root, gitignored. Only the manager writes it; lanes

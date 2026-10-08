@@ -35,7 +35,7 @@ newer than the last install), `missing`, or `none` (no lockfile).
    - `git branch team/integration main` (only if the branch does not exist)
    - `git worktree add "<team root>/integration" team/integration`
    - `git worktree add --detach "<team root>/worker-N" team/integration`
-   (team root: `C:\Projects\AgenticOfficeSimulation-team`).
+   (team root: `C:\Projects\Agentic-Office-Simulation-team`).
 2. **Refresh idle slots.** For each slot marked `(behind)` that has no open lane and is content-clean:
    `git -C "<slot>" switch --detach team/integration`. This matters because a chat loads its skills
    from its own checkout, so a stale slot would run old team rules. Do this before installing, so the

@@ -6,7 +6,7 @@ inventory of features, windows, or tests.
 
 ## Repository layout
 
-The git root is this folder (`C:\Projects\AgenticOfficeSimulation`), and it is the working directory.
+The git root is this folder (`C:\Projects\Agentic-Office-Simulation`), and it is the working directory.
 
 ## Stack baseline
 
