@@ -52,9 +52,18 @@ Inspect the current tree when feature inventory matters.
   depart only for a concrete reason, and say why; a security-default departure needs the user's
   explicit approval. Its §2 architectural preferences are judgment-guiding, not mechanical absolutes:
   a justified feature need can outweigh one.
-- There is no product design document yet. The user is the final design authority. Do not invent
-  constraints from the absence of one. When a design document is added, it informs feature intent and
-  the convention guide informs code; keep the two distinct.
+- **`docs/design/`** holds feature specs (indexed in `docs/design/BACKLOG.md`). An `approved` spec is
+  the feature's intent; read it when a task implements or depends on that feature. There is no overall
+  product design document yet. The user is the final design authority. Do not invent constraints from
+  a spec's silence. If a request materially conflicts with an approved spec, surface the conflict
+  while planning. Specs inform feature intent and the convention guide informs code; keep the two
+  distinct.
+
+## Parallel team
+
+`.claude/team/PROTOCOL.md` defines the parallel lane workflow (`/team-setup`, `/team-manager`,
+`/team-worker`, `/team-design-worker`, `/team-clean`). It layers on top of this file and applies only
+in sessions that run one of those skills.
 
 ## Tooling
 
