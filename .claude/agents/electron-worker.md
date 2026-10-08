@@ -33,10 +33,10 @@ sections you need.
 
 ## Verification
 
-Verify in proportion to the change, per the stopping and fallback rules in `CLAUDE.md`, using the checks
-`package.json` provides (type-check, lint, tests) and launching the app when the change crosses
-processes. Fix type errors and test failures your own change caused; report pre-existing or unrelated
-breakage instead of repairing it. If a check the plan expects has no tooling yet, say so.
+Load the `electron-verify` skill for the command set and the verification loop. Verify in proportion to
+the change, per the stopping and fallback rules in `CLAUDE.md`, launching the app when the change
+crosses processes. Fix type errors and test failures your own change caused; report pre-existing or
+unrelated breakage instead of repairing it. If a check the plan expects has no tooling yet, say so.
 
 ## Report
 

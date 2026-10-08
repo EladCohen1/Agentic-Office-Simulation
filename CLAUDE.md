@@ -10,11 +10,20 @@ The git root is this folder (`C:\Projects\Agentic-Office-Simulation`), and it is
 
 ## Stack baseline
 
-- Electron is a dev dependency (see `package.json` for the exact version). The app runs as separate
-  **main**, **preload**, and **renderer** processes.
-- TypeScript (strict) and React are the chosen stack for all source.
-- Build tooling, test framework, and lint/format tooling are recorded here once they are chosen. Until
-  then, do not assume one exists.
+- Electron 44. The app runs as separate **main**, **preload**, and **renderer** processes.
+- **Build:** electron-vite 5 on Vite 7 (`electron.vite.config.ts`), with `@vitejs/plugin-react` for the
+  renderer. Entries follow electron-vite's conventions (`src/main/index.ts`, `src/preload/index.ts`,
+  `src/renderer/index.html`); output goes to `out/`, which `package.json` `main` points at. Main and
+  preload build as CommonJS — keep it that way (no `"type": "module"`), because an ESM preload cannot
+  run with `sandbox: true`.
+- **TypeScript 6**, strict, in two projects: `tsconfig.node.json` (main, preload, shared, and
+  `electron.vite.config.ts`) and
+  `tsconfig.web.json` (renderer, shared). Stay below TypeScript 6.1 until `typescript-eslint` supports
+  newer versions. Vite only transpiles; type errors surface through `npm run typecheck`.
+- **React 19** in the renderer.
+- **Scripts:** `npm run dev` (Vite dev server + Electron), `npm run build`, `npm run preview` (build,
+  then run the built app), `npm run typecheck`.
+- **Not chosen yet:** test framework, lint/format tooling, packaging. Do not assume one exists.
 
 `package.json`, `package-lock.json`, `tsconfig*.json`, and the build configuration are the source of
 truth if any of the above drifts. Read them rather than trusting this section.
@@ -75,10 +84,11 @@ in sessions that run one of those skills.
 
 ## Verification
 
-Source inspection alone does not verify runtime behavior. Verify in proportion to scope and credible
-failure modes: type-checking plus the narrowest relevant tests for logic; launching the app and checking
-both main-process output and the renderer console for process-integration work (IPC, preload API,
-window lifecycle, security settings, persistence); the complete diff for text-only work. Stop when
+Source inspection alone does not verify runtime behavior. Load the **`electron-verify` skill** for the
+commands. Verify in proportion to scope and credible failure modes: type-checking plus the narrowest
+relevant tests for logic; launching the app and checking both main-process output and the renderer
+console for process-integration work (IPC, preload API, window lifecycle, security settings,
+persistence); the complete diff for text-only work. Stop when
 acceptance criteria and identified risks have evidence, or when further checks would duplicate coverage.
 While a check's tooling does not exist yet, say so instead of implying coverage.
 

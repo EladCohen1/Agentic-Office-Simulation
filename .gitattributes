@@ -1,0 +1,8 @@
+# Normalize text files to LF in the repository and the working tree, so core.autocrlf on Windows does
+# not rewrite them or flag them as modified.
+* text=auto eol=lf
+
+# Windows scripts keep CRLF.
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
