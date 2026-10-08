@@ -1,0 +1,12 @@
+{
+  "name": "agentic-office-simulation",
+  "version": "0.1.0",
+  "description": "Agentic Office Simulation desktop app (Electron + TypeScript + React).",
+  "private": true,
+  "author": "Elad Cohen",
+  "license": "UNLICENSED",
+  "scripts": {},
+  "devDependencies": {
+    "electron": "^44.7.0"
+  }
+}
