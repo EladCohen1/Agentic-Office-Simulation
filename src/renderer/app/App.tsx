@@ -1,7 +1,5 @@
+import { SimulationCanvas } from '../features/Simulation/SimulationCanvas';
+
 export function App() {
-    return (
-        <main>
-            <h1>Agentic Office Simulation</h1>
-        </main>
-    );
+    return <SimulationCanvas />;
 }
