@@ -52,8 +52,10 @@ subagent under `CLAUDE.md` delegation rules.
   rely on persisted state while another worktree's app is running, and never treat data written by
   another worktree's run as your own evidence.
 - **Ports**: the Vite dev server (`npm run dev`) starts at 5173 and moves to the next free port when
-  one is taken, so concurrent dev servers do not collide and need no per-worktree assignment. A
-  `--remoteDebuggingPort` passed for verification is fixed, so pick one no other worktree is using.
+  one is taken, so concurrent dev servers do not collide and need no per-worktree assignment.
+  Debugging ports are off by default (see the `electron-verify` skill and the user-level
+  `CLAUDE.md`); if the user approves one for a check, it is fixed, so pick one no other worktree is
+  using.
 
 ## Clean tree
 

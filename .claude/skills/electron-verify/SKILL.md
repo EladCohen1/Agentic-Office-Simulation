@@ -1,6 +1,6 @@
 ---
 name: electron-verify
-description: Build and verify this Electron app — type-check, production build, and launching the built or dev app with renderer logging and a DevTools port to inspect the live renderer. Use whenever work needs verification beyond source inspection.
+description: Build and verify this Electron app — type-check, production build, and runtime checks in a visible app window the user can watch, with logs saved inside the project. Use whenever work needs verification beyond source inspection.
 ---
 
 # Verification loop
@@ -8,6 +8,12 @@ description: Build and verify this Electron app — type-check, production build
 All commands run from the repository root (in a team worktree, that worktree's root). Node and npm live
 in `C:\Program Files\nodejs`; a shell started before Node was installed may need
 `export PATH="/c/Program Files/nodejs:$PATH"`.
+
+**This machine runs company endpoint security.** The user-level `C:\Users\EladCohen\.claude\CLAUDE.md`
+("Company endpoint security: work transparently") takes priority over anything here. In short: keep every
+process visible, keep scripts and logs inside the project, write plain commands, stop only what you
+started, and never try to evade or bypass security software. If anything gets flagged, stop and tell the
+user exactly what ran.
 
 ## 0. Confirm dependencies are current
 
@@ -18,6 +24,10 @@ Results from a stale install do not count as verification.
 npm may warn that `esbuild`'s install script is not covered by `allowScripts`. That is expected: the
 build uses esbuild's prebuilt platform package and works without the script. Do not approve scripts to
 silence the warning.
+
+Do not add or install a dependency that ships native binaries (`.exe`, `.dll`, `.node`) without the
+user's explicit OK, naming the binaries it includes. Pseudo-terminal packages (`node-pty`, `winpty`,
+ConPTY wrappers) also need IT approval first: `node-pty` triggered a quarantine on 2026-10-11.
 
 ## 1. Type-check
 
@@ -41,8 +51,9 @@ npm run build
 ```
 
 Produces `out/main/index.js`, `out/preload/index.js`, and `out/renderer/`. The preload must stay
-CommonJS: `head -c 200 out/preload/index.js` starts with `"use strict"` and `require("electron")`. An
-`import` statement there means the module format changed and the sandboxed preload will fail to load.
+CommonJS: the first line of `out/preload/index.js` is `"use strict";` and it calls
+`require("electron")`. An `import` statement there means the module format changed and the sandboxed
+preload will fail to load.
 
 ## 3. Tests
 
@@ -50,28 +61,42 @@ No test framework is chosen yet. Say so in the report; do not substitute ad-hoc 
 
 ## 4. Runtime checks
 
-Launch with Chromium logging (renderer console and CSP violations go to stderr) and a DevTools port,
-then inspect the live page over the DevTools protocol.
+Run the app the way a developer would: in a **visible, titled console window**, with its output also
+saved to a log file inside the project so you can read it afterwards.
 
 ```bash
-# Built app. This runs whatever is in out/ without rebuilding (unlike `npm run preview`), so run
-# `npm run build` first or you are verifying stale output.
-ELECTRON_ENABLE_LOGGING=1 ./node_modules/electron/dist/electron.exe . --remote-debugging-port=9223 > <scratchpad>/run.log 2>&1 &
+# Built app: builds, then opens the app. The console window stays open and shows all output.
+start "AOS verify - preview" powershell -NoExit -Command "$env:ELECTRON_ENABLE_LOGGING='1'; npm run preview 2>&1 | Tee-Object -FilePath .tmp-verify\preview.log"
 
-# Dev app (Vite dev server; renderer at http://localhost:5173 or the next free port)
-ELECTRON_ENABLE_LOGGING=1 npx electron-vite dev --remoteDebuggingPort 9224 > <scratchpad>/dev.log 2>&1 &
+# Dev app (Vite dev server; renderer at http://localhost:5173 or the next free port).
+start "AOS verify - dev" powershell -NoExit -Command "$env:ELECTRON_ENABLE_LOGGING='1'; npm run dev 2>&1 | Tee-Object -FilePath .tmp-verify\dev.log"
 ```
 
-- `curl -s http://127.0.0.1:<port>/json/list` lists the open pages with their `title` and `url`.
-- To evaluate in the page, connect to the page's `webSocketDebuggerUrl` and send `Runtime.evaluate`
-  (Node 24 has a global `WebSocket`; keep the probe script in the scratchpad, not the repo). Useful
-  checks: the rendered DOM (`document.querySelector(...)`), `typeof require` and `typeof process`
-  (both must be `"undefined"`: the renderer has no Node), and `window.api` (the preload API).
-- Read the log for `CONSOLE` lines, `Refused to ...` (CSP violations), and errors. GPU and crashpad
-  noise is irrelevant.
-- **Always stop what you started**, and only that: Electron processes whose executable is under this
-  worktree's `node_modules`, and `node` processes running `electron-vite`. Never stop other Electron
-  apps on the machine.
+Create `.tmp-verify\` first if it does not exist (it is git-ignored). Tell the user which window you
+opened and what to look at.
+
+**Gathering evidence:**
+
+- **Logs:** read `.tmp-verify\*.log` for renderer `CONSOLE` lines, `Refused to ...` (CSP violations),
+  and errors. GPU and crashpad noise is irrelevant. `ELECTRON_ENABLE_LOGGING` sends the renderer console
+  to this output, so no debugging port is needed for it.
+- **What the window shows:** ask the user to describe or screenshot what they see, or to open the
+  renderer DevTools in the app window (`Ctrl+Shift+I`) and run a check you give them, such as
+  `typeof require` and `typeof process` (both must be `"undefined"`: the renderer has no Node), or
+  `window.api` (the preload API). If a desktop screenshot tool is available in the session, use it only
+  with the user's approval.
+- **DevTools protocol port:** not by default. If a check truly cannot be done another way, explain why
+  and get the user's OK first, launch with the port in the same kind of visible window, keep the probe
+  script in `.tmp-verify\`, and close that window as soon as the check is done.
+- Do not use hidden or off-screen windows, base64 `data:` URLs on the command line, or scripts in
+  `%TEMP%`. To render something for inspection, write the `.html` or `.svg` file into `.tmp-verify\` and
+  open it there.
+
+**Stopping:** close the console window you opened (closing it ends the app and the dev server), or ask
+the user to. If a process must be ended from a command, end only the process ID you launched and
+recorded, with `taskkill /PID <pid> /T`. Never kill processes by name or by path filter.
+
+**Cleaning up:** delete what you created in `.tmp-verify\` once the evidence is in the report.
 
 Every worktree's app shares one Electron `userData` folder (see `.claude/team/PROTOCOL.md`), so do not
 rely on persisted state while another worktree's app is running.
@@ -79,6 +104,6 @@ rely on persisted state while another worktree's app is running.
 ## Reporting
 
 State exactly what ran, what passed, what failed, and what remains unverified. Distinguish source-level
-evidence from runtime evidence, and say "no test framework yet" rather than implying test coverage. For
-each blocked objective, try at most one fallback, then report the limitation instead of accumulating
-diagnostics.
+evidence from runtime evidence, say which evidence came from the user's own observation, and say "no
+test framework yet" rather than implying test coverage. For each blocked objective, try at most one
+fallback, then report the limitation instead of accumulating diagnostics.

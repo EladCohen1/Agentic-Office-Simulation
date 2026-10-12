@@ -11,6 +11,9 @@ release/
 *.log
 npm-debug.log*
 
+# Verification scratch (electron-verify skill: logs, probe scripts, render files)
+.tmp-verify/
+
 # Environment
 .env
 .env.*
